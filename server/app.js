@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const JWT_SECRET = 'zhizao-ai-secret-key-2024';
 
 // 中间件
@@ -440,6 +440,6 @@ app.get('/api/developers/ranking', (req, res) => {
 // serve static files
 app.use(express.static(path.join(__dirname, '..')));
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`智造AI平台服务已启动: http://localhost:${PORT}`);
 });
