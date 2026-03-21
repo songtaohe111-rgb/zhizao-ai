@@ -1,17 +1,13 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "NIXPACKS",
-    "install": "cd server && npm install"
+    "builder": "NIXPACKS"
   },
   "deploy": {
     "numReplicas": 1,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10,
-    "startCommand": "cd server && node app.js"
-  },
-  "rootDirectory": "server",
-  "variables": {
-    "PORT": "8080"
+    "preDeployCommand": "npm install",
+    "startCommand": "node app.js"
   }
 }
