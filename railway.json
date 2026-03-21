@@ -7,8 +7,11 @@
     "numReplicas": 1,
     "restartPolicyType": "ON_FAILURE",
     "restartPolicyMaxRetries": 10,
-    "preDeployCommand": "npm install",
-    "startCommand": "node app.js"
+    "preDeployCommand": "cd server && npm install",
+    "startCommand": "cd server && node app.js"
   },
-  "rootDirectory": "server"
+  "rootDirectory": "server",
+  "variables": {
+    "PORT": "3000"
+  }
 }
