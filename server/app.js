@@ -35,7 +35,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // 初始化数据库
-const db = new Database.Database(path.join(process.env.RAILWAY ? '/tmp' : __dirname, 'zhizao.db'));
+const db = new Database.Database(':memory:');
 
 // 创建数据库表
 db.serialize(() => {
