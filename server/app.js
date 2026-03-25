@@ -16,7 +16,7 @@ const JWT_SECRET = 'zhizao-ai-secret-key-2024';
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname,'..')));
 
 // 确保上传目录存在
 const uploadDir = path.join(__dirname, 'uploads');
@@ -35,7 +35,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // 初始化数据库
-const db = new Database.Database(':memory:');
+const db = new Database.Database(path.join(_dirname,const'zhizao.db'));
 
 // 创建数据库表
 db.serialize(() => {
